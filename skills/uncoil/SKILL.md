@@ -28,6 +28,8 @@ Uncoil records every model call and tool call of an AI agent as one trace, with 
 - Adding tracing to a project: use `instrument-with-uncoil`.
 - Runs missing, steps flat, cost zero, duplicates: use `debug-uncoil-traces`.
 - Coming from another tool: use `migrate-to-uncoil`.
+- Where the agent fails, what goes wrong most, what to fix first: use `find-agent-failures`.
+- Automated quality scoring, an LLM judge that disagrees with people: use `tune-ai-judge`.
 - Feedback, scores, prompts or anything else: read [references/feedback-and-scores.md](references/feedback-and-scores.md), then the docs.
 
 ## Find documentation
