@@ -1,0 +1,10 @@
+{
+  "name": "uncoil",
+  "description": "Skills for adding Uncoil tracing to AI agents, debugging missing or wrong traces, recording feedback and scores, and moving over from another tracing tool.",
+  "version": "0.1.0",
+  "author": { "name": "Uncoil", "url": "https://www.uncoil.dev" },
+  "homepage": "https://www.uncoil.dev/docs/claude-plugin",
+  "repository": "https://github.com/Uncoil-dev/skill",
+  "license": "MIT",
+  "keywords": ["uncoil", "llm", "agents", "observability", "tracing", "cost", "evaluation"]
+}
