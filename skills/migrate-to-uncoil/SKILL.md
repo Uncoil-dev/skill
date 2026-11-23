@@ -45,9 +45,10 @@ Use only the paths that are documented. Do not invent import endpoints or SDK ca
    - Copy model name, token counts, latency and errors as they were. Leave cost at zero unless the user supplies a rate card. Do not invent prices.
    - Add a tag such as `imported` and the old tool's name, so imported runs can be filtered out.
 3. **Redaction still applies.** Inputs and outputs are capped and obvious secrets removed. Ask before sending real user data, and offer to leave inputs out.
-4. **Try 20 runs first.** Open the dashboard, set the time range to the original dates and check that the runs sit on those dates with the right model, tokens and errors. If the dates are wrong, or the project's plan does not keep data that old, stop and tell the user. Do not work around a plan limit.
-5. **Then send the rest in small batches.** Respect rate limits: slow down on HTTP 429 and retry server errors, never loop without a delay. Write down which old ids were accepted so a failed import can resume.
-6. **Datasets, prompts and scores.** There is no documented bulk import for these. Tell the user which ones will not move and suggest recreating the important ones in the dashboard. Check the datasets and feedback docs before offering anything else.
+4. **Mind the plan's retention.** Uncoil keeps the `createdAt` you send (it only checks that it is a valid ISO date), so runs show on their original dates. A nightly job then deletes data older than the project's plan keeps (7, 30 or 90 days, by plan). Imported runs older than that are removed the next night. Check the project's plan first and tell the user which part of the history will survive.
+5. **Try 20 runs first.** Open the dashboard, set the time range to the original dates and check that the runs sit on those dates with the right model, tokens and errors. If something is wrong, stop and tell the user.
+6. **Then send the rest in small batches.** Respect rate limits: slow down on HTTP 429 and retry server errors, never loop without a delay. Write down which old ids were accepted so a failed import can resume.
+7. **Datasets, prompts and scores.** There is no documented bulk import for these. Tell the user which ones will not move and suggest recreating the important ones in the dashboard. Check the datasets and feedback docs before offering anything else.
 
 ## 5. Compare
 
