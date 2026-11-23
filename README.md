@@ -1,4 +1,4 @@
-# Uncoil plugin for Claude Code
+# Uncoil plugin for Claude Code and Cursor
 
 Skills that teach Claude Code (and other agents that read the Agent Skills format) how to work with [Uncoil](https://www.uncoil.dev), the observability platform for AI agents.
 
@@ -20,6 +20,12 @@ In Claude Code:
 ```
 /plugin marketplace add Uncoil-dev/skill
 /plugin install uncoil@uncoil
+```
+
+In Cursor, open Customize in the sidebar, find the Uncoil plugin and select Install. Until the listing is live, add this repository as a team marketplace (Dashboard, Plugins & MCPs, Import from Repo), or copy the bundle to `~/.cursor/plugins/local/uncoil` and reload the window:
+
+```bash
+node scripts/bundle.mjs ~/.cursor/plugins/local/uncoil
 ```
 
 Or install only the skills with the skills CLI:
