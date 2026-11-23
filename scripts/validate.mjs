@@ -26,6 +26,14 @@ const market = json(".claude-plugin/marketplace.json");
 const listed = (market.plugins ?? []).find((entry) => entry.name === plugin.name);
 if (!listed) fail("marketplace.json: plugin is not listed");
 
+const cursor = json(".cursor-plugin/plugin.json");
+if (cursor.name !== plugin.name) fail("cursor plugin.json: name must match the Claude plugin");
+if (cursor.version !== plugin.version) fail("cursor plugin.json: version must match the Claude plugin");
+if (!(json(".cursor-plugin/marketplace.json").plugins ?? []).some((entry) => entry.name === cursor.name)) {
+  fail("cursor marketplace.json: plugin is not listed");
+}
+if (JSON.stringify(json("mcp.json")) !== JSON.stringify(json(".mcp.json"))) fail("mcp.json must match .mcp.json");
+
 const mcp = json(".mcp.json");
 if (!mcp.mcpServers || !Object.keys(mcp.mcpServers).length) fail(".mcp.json: no servers");
 

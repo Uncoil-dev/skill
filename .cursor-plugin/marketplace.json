@@ -1,0 +1,12 @@
+{
+  "name": "uncoil",
+  "owner": { "name": "Uncoil" },
+  "metadata": { "description": "Uncoil skills for tracing and debugging AI agents" },
+  "plugins": [
+    {
+      "name": "uncoil",
+      "source": "./",
+      "description": "Add Uncoil tracing to AI agents, debug traces, record feedback and scores, and migrate from another tracing tool."
+    }
+  ]
+}

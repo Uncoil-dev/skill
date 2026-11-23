@@ -1,0 +1,10 @@
+---
+description: Rules for working with the Uncoil SDK and traces
+alwaysApply: false
+---
+
+When a task involves Uncoil (tracing, runs, cost, feedback scores):
+
+- Use the `uncoil` skill first; it looks up current docs through the `uncoil-docs` server.
+- Sign in with `npx @uncoil.dev/sdk login`. Never ask for or paste an API key into chat, and keep `.env.local` out of git.
+- Verify that a first trace arrives before calling the setup done.

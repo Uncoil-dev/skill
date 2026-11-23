@@ -26,12 +26,15 @@ To see what Codex or OpenCode did in a session, use the plugins in this reposito
 6. **Record each call once.** A wrapped provider client plus framework callbacks, or a wrapper plus a manual `llmCall`, records the call twice.
 7. **Tracing must never break the agent.** The SDKs swallow delivery errors. Do not add code that makes the agent wait on or fail because of telemetry.
 8. **Ask before sending real user data.** Inputs and outputs are capped at 10,000 characters and obvious secrets are removed, but that is a safety net. Offer `captureInput: false` / `capture_input=False` for sensitive steps.
+9. **Never guess button, menu or page names.** When you tell the user where to click in the Uncoil dashboard or in another tool's screen, use only names you read in the docs or saw in a screenshot. If you are not sure, say so and ask the user for a screenshot of that screen, then describe the next step from what it shows. Do not make up labels, menu paths or setting names, and do not say "it should be under...".
 
 ## Pick the right skill
 
 - Adding tracing to a project: use `instrument-with-uncoil`.
 - Runs missing, steps flat, cost zero, duplicates: use `debug-uncoil-traces`.
 - Coming from another tool: use `migrate-to-uncoil`.
+- Where the agent fails, what goes wrong most, what to fix first: use `find-agent-failures`.
+- Automated quality scoring, an LLM judge that disagrees with people: use `tune-ai-judge`.
 - Feedback, scores, prompts or anything else: read [references/feedback-and-scores.md](references/feedback-and-scores.md), then the docs.
 
 ## Find documentation
@@ -42,7 +45,7 @@ All pages are public. In order of preference:
 2. Fetch the index: `curl -s https://www.uncoil.dev/llms.txt`, then fetch a page as Markdown by adding `.md`, for example `https://www.uncoil.dev/docs/typescript.md`.
 3. Browse `https://www.uncoil.dev/docs`.
 
-Useful pages: `quickstart`, `typescript`, `python`, `provider-integrations`, `trace-anatomy`, `feedback-and-scores`, `troubleshooting`, `data-regions`, `redaction`, `costs`, `switching`.
+Useful pages: `quickstart`, `typescript`, `python`, `provider-integrations`, `trace-anatomy`, `feedback-and-scores`, `troubleshooting`, `data-regions`, `redaction`, `costs`, `switching`, `api`.
 
 ## Reading traces
 

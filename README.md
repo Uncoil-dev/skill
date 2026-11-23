@@ -4,7 +4,7 @@ Skills and plugins for [Uncoil](https://www.uncoil.dev), the observability platf
 
 | Tool | What you get | Folder |
 | --- | --- | --- |
-| Claude Code | Skills that add tracing, debug traces and migrate from other tools | [`skills/`](skills) |
+| Claude Code and Cursor | Skills that add tracing, debug traces and migrate from other tools | [`skills/`](skills) |
 | Codex | A plugin that sends every Codex turn to Uncoil as a trace | [`codex/uncoil`](codex/uncoil) |
 | OpenCode | A plugin that sends every OpenCode reply to Uncoil as a trace | [`opencode`](opencode) |
 
@@ -20,6 +20,14 @@ Skills teach Claude Code (and other agents that read the Agent Skills format) ho
 | [`instrument-with-uncoil`](skills/instrument-with-uncoil/SKILL.md) | Adds tracing to an agent project, signs in from the terminal and verifies that a first trace arrives. |
 | [`debug-uncoil-traces`](skills/debug-uncoil-traces/SKILL.md) | Finds out why runs are missing, steps are flat, cost is zero or calls appear twice. |
 | [`migrate-to-uncoil`](skills/migrate-to-uncoil/SKILL.md) | Moves tracing from LangSmith, Helicone, an OpenTelemetry setup or another tool to Uncoil. |
+| [`find-agent-failures`](skills/find-agent-failures/SKILL.md) | Finds where the agent fails, groups failures by cause and turns the biggest groups into fixes and test cases. |
+| [`cut-ai-costs-with-uncoil`](skills/cut-ai-costs-with-uncoil/SKILL.md) | Finds where the agent spends money and shows the expected savings in a table. |
+| [`write-prompts-with-uncoil`](skills/write-prompts-with-uncoil/SKILL.md) | Improves a prompt from real traces, tests it and ships it as a versioned prompt. |
+| [`manage-prompts-with-uncoil`](skills/manage-prompts-with-uncoil/SKILL.md) | Moves hardcoded prompts into Uncoil managed prompts that change without a deploy. |
+| [`build-test-dataset`](skills/build-test-dataset/SKILL.md) | Builds a small, balanced test dataset from real traces. |
+| [`set-up-ai-quality-tests`](skills/set-up-ai-quality-tests/SKILL.md) | Sets up repeatable quality tests with scores and a pass bar. |
+| [`tune-ai-judge`](skills/tune-ai-judge/SKILL.md) | Builds an AI judge and tunes it against answers a person has labeled. |
+| [`add-quality-checks-to-ci`](skills/add-quality-checks-to-ci/SKILL.md) | Runs quality checks on every pull request and fails the build when quality drops. |
 
 The plugin also registers the read-only Uncoil docs server (`https://www.uncoil.dev/api/docs/mcp`), so Claude can search and read the documentation.
 
@@ -30,6 +38,12 @@ In Claude Code:
 ```
 /plugin marketplace add Uncoil-dev/skill
 /plugin install uncoil@uncoil
+```
+
+In Cursor, open Customize in the sidebar, find the Uncoil plugin and select Install. Until the listing is live, add this repository as a team marketplace (Dashboard, Plugins & MCPs, Import from Repo), or copy the bundle to `~/.cursor/plugins/local/uncoil` and reload the window:
+
+```bash
+node scripts/bundle.mjs ~/.cursor/plugins/local/uncoil
 ```
 
 Or install only the skills with the skills CLI:

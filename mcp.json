@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "uncoil-docs": {
+      "type": "http",
+      "url": "https://www.uncoil.dev/api/docs/mcp"
+    }
+  }
+}
