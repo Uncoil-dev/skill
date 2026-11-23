@@ -1,0 +1,25 @@
+{
+  "name": "uncoil",
+  "version": "0.1.0",
+  "description": "Send Codex sessions to Uncoil as traces.",
+  "author": { "name": "Uncoil", "url": "https://www.uncoil.dev" },
+  "homepage": "https://www.uncoil.dev/docs/codex-plugin",
+  "repository": "https://github.com/Uncoil-dev/skill",
+  "license": "MIT",
+  "keywords": ["codex", "hooks", "uncoil", "observability", "tracing"],
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Uncoil",
+    "shortDescription": "See every Codex turn in Uncoil",
+    "longDescription": "After each turn, sends the model call, tool calls, token use and answer to your Uncoil project, so you can review what Codex did and what it cost.",
+    "developerName": "Uncoil",
+    "category": "Coding",
+    "capabilities": ["Read"],
+    "websiteURL": "https://www.uncoil.dev",
+    "privacyPolicyURL": "https://www.uncoil.dev/privacy",
+    "termsOfServiceURL": "https://www.uncoil.dev/terms",
+    "defaultPrompt": [],
+    "brandColor": "#F4D44D",
+    "screenshots": []
+  }
+}

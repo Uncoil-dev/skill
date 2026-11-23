@@ -1,0 +1,11 @@
+{
+  "name": "@uncoil.dev/opencode-plugin",
+  "version": "0.1.0",
+  "description": "Send OpenCode sessions to Uncoil as traces.",
+  "license": "MIT",
+  "type": "module",
+  "main": "uncoil.js",
+  "files": ["uncoil.js"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs" }
+}

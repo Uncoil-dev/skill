@@ -37,6 +37,14 @@ if (JSON.stringify(json("mcp.json")) !== JSON.stringify(json(".mcp.json"))) fail
 const mcp = json(".mcp.json");
 if (!mcp.mcpServers || !Object.keys(mcp.mcpServers).length) fail(".mcp.json: no servers");
 
+const codex = json("codex/uncoil/.codex-plugin/plugin.json");
+for (const key of ["name", "version", "description", "hooks"]) {
+  if (!codex[key]) fail(`codex plugin.json: missing "${key}"`);
+}
+const codexMarket = json(".agents/plugins/marketplace.json");
+if (!(codexMarket.plugins ?? []).some((entry) => entry.name === codex.name)) fail("codex marketplace.json: plugin is not listed");
+if (!existsSync(join(root, "codex/uncoil", codex.hooks ?? "missing"))) fail("codex plugin: hooks file not found");
+
 const skillsDir = join(root, "skills");
 for (const name of readdirSync(skillsDir)) {
   const file = join(skillsDir, name, "SKILL.md");

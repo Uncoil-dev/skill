@@ -12,6 +12,10 @@ allowed-tools:
 
 Uncoil records every model call and tool call of an AI agent as one trace, with cost, latency, errors and quality signals. This skill is the entry point for any Uncoil task.
 
+## Tracing the coding agent itself
+
+To see what Codex or OpenCode did in a session, use the plugins in this repository instead of the SDK: `codex/uncoil` (Codex) and `opencode/uncoil.js` (OpenCode). Both read the same `UNCOIL_API_KEY` and send each finished turn as one trace. Claude Code needs no plugin for this: use the SDK in the app you build.
+
 ## Rules for all Uncoil work
 
 1. **Read current docs before writing code.** SDKs change. Fetch the page for the task (see "Find documentation") instead of working from memory.
